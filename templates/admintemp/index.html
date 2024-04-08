@@ -139,6 +139,19 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#cha" aria-expanded="false" aria-controls="cha">
+              <i class="typcn typcn-briefcase menu-icon"></i>
+              <span class="menu-title">Survey Questions</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="cha">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'add-survey' %}">Add</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'view-survey' %}">View</a></li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
         <!-- partial -->

@@ -96,4 +96,9 @@ class DonationForm(forms.ModelForm):
         model = Donation
         fields = ['donation_type','amount']
 
+class SurveyForm(forms.ModelForm):
+    class Meta:
+        model = surveyquestions
+        fields = ['question']
+
 

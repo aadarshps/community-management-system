@@ -157,5 +157,18 @@ def view_donations(request):
     data = Donation.objects.all()
     return render(request, 'admintemp/view_donations.html', {'data': data})
 
+def add_survey(request):
+    if request.method == 'POST':
+        form = SurveyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('view-survey')
+    else:
+        form = SurveyForm()
+    return render(request,'admintemp/add_survey.html',{'form':form})
+
+def view_survey(request):
+    data = surveyquestions.objects.all()
+    return render(request, 'admintemp/view_survey.html', {'data': data})
 
 

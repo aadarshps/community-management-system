@@ -18,6 +18,10 @@ urlpatterns = [
     path('assistance-list-admin/',views.view_assistance_admin,name='assistance-list-admin'),
     path('assistance-list-approve/<int:pk>/',views.approve_assistance,name='assistance-list-approve'),
     path('view-donations',views.view_donations,name='view-donations'),
+    path('add-survey',views.add_survey,name='add-survey'),
+    path('view-survey',views.view_survey,name='view-survey'),
+
+
 
 
     path('add-fund',views.add_fund,name='add-fund'),

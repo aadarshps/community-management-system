@@ -118,3 +118,6 @@ class ResourceReport(BaseModel):
 
     def __str__(self):
         return self.report_name
+    
+class surveyquestions(BaseModel):
+    question = models.CharField(max_length=200)

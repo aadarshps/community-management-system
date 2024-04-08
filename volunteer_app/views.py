@@ -67,3 +67,7 @@ def assistance_volunteer_status(request,pk):
     else:
         form=AssistanceStatusForm()
     return render(request,'vtrtemp/assistance_update.html',{'form':form})
+
+def view_survey_volunteer(request):
+    data = surveyquestions.objects.all()
+    return render(request,'vtrtemp/view_survey.html',{'data':data})

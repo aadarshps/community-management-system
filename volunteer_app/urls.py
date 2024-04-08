@@ -9,5 +9,7 @@ urlpatterns = [
     path('assistance-assigned/',views.assistance_assigned,name='assistance-assigned'),
     path('update-volunteer-status/<int:pk>/',views.update_volunteer_status,name='update-volunteer-status'),
     path('assistance-volunteer-status/<int:pk>/',views.assistance_volunteer_status,name='assistance-volunteer-status'),
+    path('view_survey_volunteer',views.view_survey_volunteer,name='view_survey_volunteer'),
+
 
 ]
