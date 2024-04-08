@@ -24,6 +24,8 @@ def sign_in(request):
                     return redirect('volunteer-dashboard')
                 elif user.role == 3:
                     return redirect('beneficarie-dashboard')
+                elif user.role == 4:
+                    return redirect('donater-dashboard')
             else:
                 messages.info(request, 'Invalid Credentials')
         except Exception as e:
@@ -36,6 +38,9 @@ def sign_out(request):
 
 def admin_dashboard(request):
     return render(request,'admintemp/index.html')
+
+def donater_dashboard(request):
+    return render(request,'donatertemp/index.html')
 
 def add_volunteer(request):
     if request.method == 'POST':
@@ -54,6 +59,30 @@ def add_volunteer(request):
         form = VolunteersForm()
         u_form = UserRegistrationForm()
     return render(request,'admintemp/volunteer_register.html',{'form':form,'u_form':u_form})
+
+def add_fundraiser(request):
+    if request.method == 'POST':
+        form = FundraiserForm(request.POST)
+        u_form = UserRegistrationForm(request.POST)
+        if form.is_valid() and u_form.is_valid():
+            user = u_form.save(commit=False)
+            user.role = 4
+            user.is_active = True
+            user.save()
+            data = form.save(commit=False)
+            data.user = user
+            data.save()
+            return redirect('view-fundraiser') 
+    else:
+        form = FundraiserForm()
+        u_form = UserRegistrationForm()
+    return render(request,'admintemp/fundraiser_register.html',{'form':form,'u_form':u_form})
+
+def view_fundraisers(request):
+    data = User.objects.filter(role=4)
+    fr = UserProfile.objects.filter(user__in=data)
+    print(fr)
+    return render(request, 'admintemp/fundraiser_view.html', {'fr': fr})
 
 def view_volunteers(request):
     data = User.objects.filter(role=2)
@@ -108,9 +137,25 @@ def approve_assistance(request,pk):
         form=AssistanceForm()
     return render(request,'admintemp/assistance-list-admin.html',{'form':form})
 
-# def updated_assistance_admin(request):
-#     data=Assistance.objects.all().order_by('-id')
-#     return render(request,'admintemp/assistance.html',{'data':data})
+def add_fund(request):
+    if request.method == 'POST':
+        form = DonationForm(request.POST)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.user = request.user
+            f.save()
+            return redirect('view-fund')
+    else:
+        form = DonationForm()
+    return render(request, 'donatertemp/add_fund.html', {'form': form})
+
+def view_fund(request):
+    data = Donation.objects.filter(user=request.user)
+    return render(request, 'donatertemp/view_fund.html', {'data': data})
+
+def view_donations(request):
+    data = Donation.objects.all()
+    return render(request, 'admintemp/view_donations.html', {'data': data})
 
 
 

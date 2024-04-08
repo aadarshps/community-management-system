@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-SELECTROLE = ((1, "admin"), (2, "volunteers"), (3, "beneficiaries"))
+SELECTROLE = ((1, "admin"), (2, "volunteers"), (3, "beneficiaries"),(4,"fundraiser"))
 
 class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=50, blank=True, null=True)
@@ -95,10 +95,9 @@ class Resource(BaseModel):
     quantity = models.IntegerField(null=True,blank=True)
 
 class Donation(BaseModel):
-    donor_name = models.CharField(max_length=100,null=True,blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
     donation_type = models.CharField(max_length=50,null=True,blank=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    resource_donated = models.ForeignKey(Resource, on_delete=models.SET_NULL, null=True, blank=True)
 
 class Fund(BaseModel):
     fund_name = models.CharField(max_length=100,null=True, blank=True)

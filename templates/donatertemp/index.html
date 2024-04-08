@@ -59,7 +59,7 @@
             <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'admin-dashboard' %}">
+            <a class="nav-link" href="{% url 'donater-dashboard' %}">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -67,75 +67,13 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Volunteers</span>
+              <span class="menu-title">Deposit Fund</span>
               <i class="typcn typcn-chevron-right menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'add-volunteer' %}">Add</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'view-volunteer' %}">View</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basi" aria-expanded="false" aria-controls="ui-basi">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Fund Raiser</span>
-              <i class="typcn typcn-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basi">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'add-fundraiser' %}">Add</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'view-fundraiser' %}">View</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Benefeciaries</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{% url 'view-beneficary_ad' %}">View</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Welfare programs</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'add-welfareprograms' %}">Add</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'view-welfareprograms-admin' %}">View</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#chart" aria-expanded="false" aria-controls="chart">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Assistances Requests</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="chart">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'assistance-list-admin' %}">View</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#char" aria-expanded="false" aria-controls="char">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Donations</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="char">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'view-donations' %}">View</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'add-fund' %}">Add</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'view-fund' %}">View</a></li>
               </ul>
             </div>
           </li>
@@ -145,7 +83,7 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
-              <div class="col-lg-12 mb-4">
+              <div class="col-lg-10 mb-4">
               {% block content %}
               <div class="card">
                 <div class="card-body">

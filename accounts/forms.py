@@ -43,6 +43,13 @@ class VolunteersForm(forms.ModelForm):
         model = UserProfile
         fields = ['name', 'mobile_number','availability','profile_picture','area']
 
+class FundraiserForm(forms.ModelForm):
+    name = forms.CharField(required=True)
+    mobile_number = forms.CharField(required=True)
+    class Meta:
+        model = UserProfile
+        fields = ['name', 'mobile_number']
+
 class BeneficiariesForm(forms.ModelForm):
     name=forms.CharField(required=True)
     mobile_number=forms.CharField(required=True)
@@ -83,5 +90,10 @@ class AssistanceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['volunteer'].queryset = User.objects.filter(role=2)
+
+class DonationForm(forms.ModelForm):
+    class Meta:
+        model = Donation
+        fields = ['donation_type','amount']
 
 
